@@ -1,0 +1,25 @@
+package serial_com;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class SearchFrame extends JFrame {
+
+	private JPanel contentPane;
+
+
+	public SearchFrame() {
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("Adauga Pacient");
+		setBounds(100, 100, 559, 533);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+	}
+
+}

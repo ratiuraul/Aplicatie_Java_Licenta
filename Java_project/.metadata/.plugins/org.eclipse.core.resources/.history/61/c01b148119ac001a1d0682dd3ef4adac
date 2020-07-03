@@ -1,0 +1,6 @@
+package serial_com;
+
+public class Processor {
+	public String request_Id = "";
+	static String response = "";
+}

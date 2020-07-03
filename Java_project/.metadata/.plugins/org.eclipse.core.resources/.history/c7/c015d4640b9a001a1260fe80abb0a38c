@@ -1,0 +1,47 @@
+package serial_com;
+
+import java.util.Scanner;
+
+import com.fazecast.jSerialComm.*;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		// create and configure the window
+		JFrame window = new JFrame();
+		window.setTitle("Arduino LCD Clock");
+		window.setSize(400, 75);
+		window.setLayout(new BorderLayout());
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// create a drop-down box and connect button, then place them at the top of the window
+		JComboBox<String> portList = new JComboBox<String>();
+		JButton connectButton = new JButton("Connect");
+		JPanel topPanel = new JPanel();
+		topPanel.add(portList);
+		topPanel.add(connectButton);
+		window.add(topPanel, BorderLayout.NORTH);
+		
+		// populate the drop-down box
+		SerialPort[] portNames = SerialPort.getCommPorts();
+		for (int i = 0; i < portNames.length; i++)
+			portList.addItem(portNames[i].getSystemPortName());
+		
+		// show the window
+ 		
+		
+		
+
+	}
+}

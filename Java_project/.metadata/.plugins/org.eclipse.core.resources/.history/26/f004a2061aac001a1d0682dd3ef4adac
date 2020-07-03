@@ -1,0 +1,32 @@
+package serial_com;
+
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.json.JSONObject;
+JsonServices js = new JsonServices();
+
+public class Processor {
+	static String response = "";
+	List<JSONObject> initialList = null;
+	
+	public String process(String requested_Id) {
+		try {
+			DbConnector db = new DbConnector();
+			ResultSetMetaData rsmd = db.myRs.getMetaData();
+			int columnCount = rsmd.getColumnCount();
+			initialList = js.getFormattedResult(db.myRs);
+			for (int i = 1; i <= columnCount; i++) {
+				String name = rsmd.getColumnName(i);
+				serchList.addItem(name);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+}
+

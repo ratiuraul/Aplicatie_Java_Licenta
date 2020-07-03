@@ -1,0 +1,33 @@
+package serial_com;
+
+import java.util.Scanner;
+
+import com.fazecast.jSerialComm.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		SerialPort ports[] = SerialPort.getCommPorts();
+
+		System.out.println("Select a port: ");
+		int i = 1;
+		for (SerialPort port : ports) {
+			System.out.println(i++ + ": " + port.getSystemPortName());
+		}
+
+		Scanner s = new Scanner(System.in);
+		int chosenPort = s.nextInt();
+
+		SerialPort port = ports[chosenPort - 1];
+
+		if (port.openPort()) {
+			System.out.println("Succesfully Opened Port");
+		} else {
+			System.out.println("Cannot Opene the selected Port");
+
+		}
+		port.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 0, 0);
+		Scanner data = new Scanner(port.getInputStream());
+	}
+}

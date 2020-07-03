@@ -1,0 +1,16 @@
+package serial_com;
+
+import com.fazecast.jSerialComm.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		SerialPort ports[] = SerialPort.getCommPorts();
+
+		System.out.println("Select a port: ");
+		for (SerialPort port : ports) {
+
+		}
+	}
+}

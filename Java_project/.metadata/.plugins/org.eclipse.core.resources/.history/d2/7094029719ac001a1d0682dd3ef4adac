@@ -1,0 +1,13 @@
+package serial_com;
+
+public class Processor {
+	public String request_Id = "";
+	static String response = "";
+	
+	public Processor(String request_Id)
+	{this.request_Id = request_Id;}
+	
+	
+	
+		}
+}
